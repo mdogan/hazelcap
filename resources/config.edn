@@ -1,0 +1,4 @@
+{
+ :ssh {:username "admin" :password nil :private-key-path "/work/aws/mdogan.pem"}
+ :nodes ["N1" "N2" "N3" "N4" "N5"]
+ }

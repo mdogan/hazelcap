@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast xmlns="http://www.hazelcast.com/schema/config"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.hazelcast.com/schema/config
+           http://www.hazelcast.com/schema/config/hazelcast-config-3.6.xsd">
+
+    <group>
+        <name>dev</name>
+        <password>dev-pass</password>
+    </group>
+
+    <properties>
+        <property name="hazelcast.socket.bind.any">true</property>
+        <property name="hazelcast.logging.type">log4j</property>
+        <property name="hazelcast.initial.min.cluster.size">5</property>
+    </properties>
+
+    <network>
+        <public-address><!-- PUBLIC-ADDRESS --></public-address>
+        <port auto-increment="true">5701</port>
+        <join>
+            <multicast enabled="false" />
+            <tcp-ip enabled="true">
+                <!-- MEMBERS -->
+            </tcp-ip>
+        </join>
+        <interfaces enabled="true">
+            <interface><!-- INTERFACE --></interface>
+        </interfaces>
+    </network>
+
+</hazelcast>
