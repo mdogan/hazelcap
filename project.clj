@@ -6,6 +6,6 @@
   :repositories {"sonatype snapshots" "https://oss.sonatype.org/content/repositories/snapshots"}
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [jepsen "0.1.2"]
-                 [com.hazelcast/hazelcast-client "3.7-EA"]
+                 [com.hazelcast/hazelcast-client "3.8-SNAPSHOT"]
                  ])
 

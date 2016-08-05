@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<hazelcast-client xsi:schemaLocation="http://www.hazelcast.com/schema/client-config hazelcast-client-config-3.6.xsd"
+<hazelcast-client xsi:schemaLocation="http://www.hazelcast.com/schema/client-config
+    http://www.hazelcast.com/schema/config/hazelcast-client-config-3.6.xsd"
                   xmlns="http://www.hazelcast.com/schema/client-config"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
@@ -9,12 +10,12 @@
     </group>
 
     <properties>
-        <property name="hazelcast.client.shuffle.member.list">true</property>
-        <property name="hazelcast.client.heartbeat.timeout">60000</property>
-        <property name="hazelcast.client.heartbeat.interval">5000</property>
-        <property name="hazelcast.client.event.thread.count">5</property>
-        <property name="hazelcast.client.event.queue.capacity">1000000</property>
-        <property name="hazelcast.client.invocation.timeout.seconds">120</property>
+        <!--<property name="hazelcast.client.shuffle.member.list">true</property>-->
+        <!--<property name="hazelcast.client.heartbeat.timeout">60000</property>-->
+        <!--<property name="hazelcast.client.heartbeat.interval">5000</property>-->
+        <property name="hazelcast.client.event.thread.count">1</property>
+        <!--<property name="hazelcast.client.event.queue.capacity">1000000</property>-->
+        <!--<property name="hazelcast.client.invocation.timeout.seconds">120</property>-->
     </properties>
 
     <network>
@@ -22,7 +23,7 @@
             <!-- MEMBER -->
         </cluster-members>
 
-        <smart-routing>true</smart-routing>
+        <smart-routing>false</smart-routing>
         <redo-operation>false</redo-operation>
         <connection-timeout>60000</connection-timeout>
         <connection-attempt-period>3000</connection-attempt-period>

@@ -1,4 +1,4 @@
 {
  :ssh {:username "admin" :password nil :private-key-path "/work/aws/mdogan.pem"}
- :nodes ["N1" "N2" "N3" "N4" "N5"]
+ :nodes ["54.82.203.78" "54.158.177.202" "54.87.65.122" "54.147.229.182" "54.204.122.67"]
  }
