@@ -150,10 +150,15 @@
       :os debian/os
       :db (db version)
       :client (atomic-long-client nil nil)
+      :nemesis (nemesis/partition-random-halves)
       :generator (->> (gen/mix [r w cas])
-                     (gen/stagger 1)
-                     (gen/clients)
-                     (gen/time-limit 15))
+                     (gen/stagger 1/10)
+                      (gen/nemesis
+                        (gen/seq (cycle [(gen/sleep 5)
+                                         {:type :info, :f :start}
+                                         (gen/sleep 5)
+                                         {:type :info, :f :stop}])))
+                     (gen/time-limit 60))
       :model   (model/cas-register 0)
       :checker checker/linearizable
       )))
