@@ -22,7 +22,7 @@
             <!-- MEMBER -->
         </cluster-members>
 
-        <smart-routing>true</smart-routing>
+        <smart-routing>false</smart-routing>
         <redo-operation>false</redo-operation>
         <connection-timeout>60000</connection-timeout>
         <connection-attempt-period>3000</connection-attempt-period>
