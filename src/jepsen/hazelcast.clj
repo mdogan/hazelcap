@@ -73,6 +73,7 @@
       (info node "JDK8 installed")
 
       (c/su
+        (c/exec :rm :-rf dir)
         (c/exec :mkdir :-p dir)
         (c/cd dir
             (info node "Uploading hazelcast.xml & log4j.properties")
@@ -107,6 +108,7 @@
 (defn prepare-client-config
   "client config"
   [node]
+  (info "Client will connect to " node)
   (ByteArrayInputStream. (.getBytes (str/replace (slurp (io/resource "hazelcast-client.xml"))
                                      #"<!-- MEMBER -->" (str "<address>" node ":5701</address>")))))
 
@@ -152,7 +154,7 @@
       :client (atomic-long-client nil nil)
       :nemesis (nemesis/partition-random-halves)
       :generator (->> (gen/mix [r w cas])
-                     (gen/stagger 1/10)
+                     (gen/stagger 1)
                       (gen/nemesis
                         (gen/seq (cycle [(gen/sleep 5)
                                          {:type :info, :f :start}

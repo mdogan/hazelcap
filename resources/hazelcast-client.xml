@@ -25,7 +25,7 @@
         <smart-routing>false</smart-routing>
         <redo-operation>false</redo-operation>
         <connection-timeout>60000</connection-timeout>
-        <connection-attempt-period>3000</connection-attempt-period>
+        <connection-attempt-period>1000</connection-attempt-period>
         <connection-attempt-limit>100</connection-attempt-limit>
     </network>
 
