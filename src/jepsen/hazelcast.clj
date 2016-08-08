@@ -12,6 +12,7 @@
              [tests :as tests]
              [util :refer [timeout]]]
             [jepsen.control.util :as cu]
+            [jepsen.checker.timeline :as timeline]
             [jepsen.control.net :as net]
             [jepsen.os.debian :as debian]
             [knossos.model :as model])
@@ -156,11 +157,13 @@
       :generator (->> (gen/mix [r w cas])
                      (gen/stagger 1)
                       (gen/nemesis
-                        (gen/seq (cycle [(gen/sleep 5)
+                        (gen/seq (cycle [(gen/sleep 20)
                                          {:type :info, :f :start}
-                                         (gen/sleep 5)
+                                         (gen/sleep 20)
                                          {:type :info, :f :stop}])))
-                     (gen/time-limit 60))
+                     (gen/time-limit 100))
       :model   (model/cas-register 0)
-      :checker checker/linearizable
+      :checker (checker/compose
+                 {:linear checker/linearizable
+                  :timeline (timeline/html)})
       )))
