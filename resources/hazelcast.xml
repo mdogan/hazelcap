@@ -13,7 +13,7 @@
         <property name="hazelcast.socket.bind.any">true</property>
         <property name="hazelcast.logging.type">log4j</property>
         <property name="hazelcast.initial.min.cluster.size">5</property>
-        <property name="hazelcast.operation.call.timeout.millis">30</property>
+        <property name="hazelcast.operation.call.timeout.millis">30000</property>
         <property name="hazelcast.max.no.heartbeat.seconds">60</property>
     </properties>
 
